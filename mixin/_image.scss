@@ -1,0 +1,38 @@
+
+// ::: S P R I T E   M I X I N ::: //
+// --------------------------------//
+
+// Set an image sprite
+// ===================
+// @param $iconName => image name
+// @important: all image sizes "retina" must be exactly twice of normal image
+// @important: never call this mixin inside media queries
+// @see: change path and selector in setting.scss
+// @idea: http://www.vtcreative.fr/blog/creation-de-sprites-avec-sass-et-compass/ (in french)
+@mixin sprite($param: null) {
+
+    // Declare and get variables
+    $iconName: null; $selector: null;
+
+    @if $param              { $iconName: nth($param, 1); }
+    @if length($param) >= 2 { 
+        $selector: nth($param, 2);
+    }
+    @else {
+        $selector: $selectorDefault;
+    }
+
+    @if $selector == elem {
+        background-position: sprite-position($sprites, $iconName);
+        width: image-width(sprite-file($sprites, $iconName));
+        height: image-height(sprite-file($sprites, $iconName));
+    }
+    @else {
+
+        &:#{$selector} {
+            background-position: sprite-position($sprites, $iconName);
+            height: image-height(sprite-file($sprites, $iconName));
+            width: image-width(sprite-file($sprites, $iconName));
+        }
+    }
+}

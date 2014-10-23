@@ -1,0 +1,39 @@
+/* --------------------- */
+/* ::: S P R I T E S ::: */
+/* --------------------- */
+
+// Class useful for sprite
+// =======================
+// @see: sprite mixin in image.scss
+// @use (with default selector): 
+//      .elem:before {
+//          @include sprite(arrow); @extend %iconBefore;
+//      }
+// @use (with other pseudo-selector): 
+//      .elem:after {
+//          @include sprite(arrow after); @extend %iconAfter;
+//      }
+// @use (without pseudo-selector): 
+//      .elem {
+//          @include sprite(arrow elem); @extend %iconElem;
+//      }
+// @warm: if change image in pseudo-selector on event in IE8, 
+//        need regenerate content of pseudo-selector.
+//        Ex: content: ".";
+$sprites: sprite-map($spritePath);
+$sprites2x: sprite-map($sprite2xPath);
+
+.iconBefore:before, %iconBefore:before, .iconAfter:after, %iconAfter:after, .iconElem, %iconElem {
+    background-repeat: no-repeat; background-image: sprite-url($sprites);
+
+    @media #{$pixels2x} {
+        background-image: sprite-url($sprites2x);
+        background-size: ceil(image-width(sprite-path($sprites2x)) / 2) auto;
+    }
+}
+
+.iconBefore:before, %iconBefore:before, .iconAfter:after, %iconAfter:after {
+    content: '';
+    position: relative; z-index: 1; overflow: hidden;
+    display: inline-block;
+}

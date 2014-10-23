@@ -1,0 +1,22 @@
+/* -------------------- */
+/* ::: PROJECT BASE ::: */
+/* -------------------- */
+
+
+// Settings
+@import "setting";
+
+// Appel des styles pour le sprite
+@import "sprite";
+
+.elem {
+    @include sprite(arrowRight); @extend %iconElem;
+}
+
+.elem-before {
+    @include sprite(arrowUp before); @extend %iconBefore
+}
+
+.elem-after {
+    @include sprite(arrowDown after); @extend %iconAfter;
+}
