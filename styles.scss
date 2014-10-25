@@ -10,14 +10,14 @@
 @import "sprite";
 
 // Exemples :
-.class-name {
-    
+.class {
+
     // Into the element
     @include sprite(arrowRight); @extend %iconElem;
 
-    // Into .class-name:before
+    // Into .class:before
     @include sprite(arrowUp before); @extend %iconBefore
 
-    // Into .class-name:after
+    // Into .class:after
     @include sprite(arrowDown after); @extend %iconAfter;
 }
