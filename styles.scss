@@ -6,17 +6,18 @@
 // Settings
 @import "setting";
 
-// Appel des styles pour le sprite
+// Class and placeholder for sprite
 @import "sprite";
 
-.elem {
+// Exemples :
+.class-name {
+    
+    // Into the element
     @include sprite(arrowRight); @extend %iconElem;
-}
 
-.elem-before {
+    // Into .class-name:before
     @include sprite(arrowUp before); @extend %iconBefore
-}
 
-.elem-after {
+    // Into .class-name:after
     @include sprite(arrowDown after); @extend %iconAfter;
 }
