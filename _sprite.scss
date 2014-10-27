@@ -23,7 +23,7 @@
 $sprites: sprite-map($spritePath);
 $sprites2x: sprite-map($sprite2xPath);
 
-.iconBefore:before, %iconBefore:before, .iconAfter:after, %iconAfter:after, .iconElem, %iconElem {
+%iconElem, %iconBefore:before, %iconAfter:after {
     background-repeat: no-repeat; background-image: sprite-url($sprites);
 
     @media #{$pixels2x} {
@@ -32,7 +32,7 @@ $sprites2x: sprite-map($sprite2xPath);
     }
 }
 
-.iconBefore:before, %iconBefore:before, .iconAfter:after, %iconAfter:after {
+%iconBefore:before, %iconAfter:after {
     content: '';
     position: relative; z-index: 1; overflow: hidden;
     display: inline-block;
