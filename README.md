@@ -31,3 +31,5 @@ To insert image in pseudo-element :
 1. Add ````_image.scss```` to yours mixins
 2. Check ````images_dir```` in your ````config.rb```` and add ````relative_assets = true````
 3. Copy settings, change directories of images and call the mixin
+
+That's all ! But try to use all icons in one global file.
